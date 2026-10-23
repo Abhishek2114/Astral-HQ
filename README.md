@@ -1,643 +1,518 @@
-# 🚀 ASTRALHQ — Enterprise AI Workforce Operations Platform
+<p align="center">
+  <img src="apps/client/src/assets/hero.png" alt="AstralHQ dashboard preview" width="960" />
+</p>
 
-> **Built For Ethara AI**
->
-> AstralHQ is a next-generation AI-powered workforce operations platform engineered for modern teams, hybrid organizations, AI-first startups, and enterprise productivity ecosystems.
->
-> It combines:
->
-> - 🧠 AI Workspace Intelligence
-> - 👥 Workforce Management
-> - 📊 Productivity Analytics
-> - ⏱️ Attendance Tracking
-> - ⚡ Real-Time Collaboration
-> - 🔐 Enterprise Security
-> - 🚀 Production-Grade Architecture
+<div align="center">
+  <img alt="React 19" src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white" />
+  <img alt="Node.js 20" src="https://img.shields.io/badge/Node.js-20-339933?style=for-the-badge&logo=node.js&logoColor=white" />
+  <img alt="Express 5" src="https://img.shields.io/badge/Express-5-000000?style=for-the-badge&logo=express&logoColor=white" />
+  <img alt="Prisma" src="https://img.shields.io/badge/Prisma-6-2D3748?style=for-the-badge&logo=prisma&logoColor=white" />
+  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" />
+  <img alt="Vite" src="https://img.shields.io/badge/Vite-Build-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind-CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img alt="License ISC" src="https://img.shields.io/badge/License-ISC-8A2BE2?style=for-the-badge" />
+</div>
 
----
+# AstralHQ
 
-# 🌐 LIVE DEPLOYMENT
+<p align="center">
+  <strong>Mission Control for Modern Teams</strong>
+</p>
 
-## 🚀 Experience AstralHQ Live
+<p align="center">
+  AstralHQ is a full-stack workforce operations platform for managing projects, reviews, attendance, leave, task allocation, and team performance from a single workspace.
+</p>
 
-👉 **Live Website:**  https://etharaai-ten.vercel.app
+<p align="center">
+  <a href="https://etharaai-ten.vercel.app">
+    <img alt="Live Demo" src="https://img.shields.io/badge/Live-Demo-22c55e?style=for-the-badge&logo=vercel&logoColor=white" />
+  </a>
+  <a href="https://github.com/Abhishek2114/Ethara-AI-">
+    <img alt="GitHub Repository" src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+</p>
 
----
+## Table of contents
 
-# 🎯 PLATFORM OVERVIEW
-
-AstralHQ transforms traditional workforce management into an intelligent operational command center.
-
-It replaces:
-- spreadsheets,
-- disconnected dashboards,
-- manual attendance systems,
-- scattered reporting tools,
-
-with one centralized AI-powered ecosystem.
-
----
-
-# 🧠 WHAT MAKES ASTRALHQ DIFFERENT?
-
-## Traditional Platforms:
-❌ Only attendance  
-❌ Only chat  
-❌ Only tasks  
-❌ No AI intelligence  
-
----
-
-## AstralHQ:
-✅ AI Workforce Intelligence  
-✅ Attendance Auditing  
-✅ Productivity Scoring  
-✅ Team Analytics  
-✅ Real-Time Collaboration  
-✅ AI Command Center  
-✅ Performance Reports  
-✅ Multi-role Workspace  
+- [Overview](#overview)
+- [Problem it solves](#problem-it-solves)
+- [Core features](#core-features)
+- [Architecture](#architecture)
+- [Technology stack](#technology-stack)
+- [Repository structure](#repository-structure)
+- [Quick start](#quick-start)
+- [Environment variables](#environment-variables)
+- [API surface](#api-surface)
+- [Deployment](#deployment)
+- [Security and implementation notes](#security-and-implementation-notes)
+- [Future improvements](#future-improvements)
+- [License](#license)
 
 ---
 
-# 🔥 FEATURE EXTRAVAGANZA
+## Overview
 
-# 🧠 AI Workspace Intelligence
+AstralHQ is a monorepo project built with a React client and an Express + Prisma backend. It is structured like an internal operations dashboard for AI-driven or project-based teams, combining workforce management, review workflows, attendance, leave management, and analytics in one system.
 
-Integrated AI ecosystem supporting:
-- OpenAI
-- Claude
-- Gemini
-- Perplexity
-- Custom AI APIs
+The application is organized around a few practical operational concerns:
 
-### Capabilities
-- AI-powered productivity
-- Team assistance
-- Smart workflow recommendations
-- Intelligent reporting
-- AI operational insights
+- project lifecycle and allocation
+- task review and quality scoring
+- attendance and leave tracking
+- team performance summaries
+- notifications, inbox, and activity feeds
+- role-based access for reviewer, lead, and tasker users
 
----
+The UI is built as a modern operational workspace with cards, metrics, dashboard widgets, and queue-based workflows rather than a generic CRUD interface.
 
-# 👥 Workforce Management System
+## Problem it solves
 
-Complete employee operations infrastructure.
+Many teams still rely on fragmented tooling for staffing, review, attendance, and project visibility. This project consolidates those workflows into a single operational system so managers can:
 
-### Includes
-- Team dashboards
-- Member activity tracking
-- Role-based access control
-- Workspace management
-- Employee performance analytics
+- monitor taskers and project allocation
+- review work quality and assign scores
+- approve or reject leave requests
+- track attendance status and operating patterns
+- review performance trends in one dashboard
+
+The implementation is designed as a practical internal team operations product rather than a static demo page.
 
 ---
 
-# ⏱️ Attendance Auditing Engine
+## Core features
 
-Enterprise-grade attendance monitoring system.
+### 1) Team operations dashboard
+- KPI cards for taskers, reviewed tasks, leave requests, and active projects
+- manager-centric views for approvals and operational decisions
+- project and team summaries in a single dashboard
 
-### Features
-✅ Daily Check-In / Check-Out  
-✅ Auto Date Detection  
-✅ Live Session Timer  
-✅ Work Duration Tracking  
-✅ Attendance Heatmaps  
-✅ Late Detection  
-✅ Leave Management  
-✅ Daily Audit Logs  
+### 2) Project management
+- create and list projects
+- project lifecycle and allocation status tracking
+- team/project association through allocations
+- work-item context for projects and review workflows
+
+### 3) Task quality review
+- review queue filtered by status
+- quality rubric with explicit score values and comments
+- reviewer attribution for completed work
+- tracking of task completion and quality states
+
+### 4) Attendance and leave lifecycle
+- attendance records with statuses such as `PRESENT`, `ABSENT`, `IDLE`, and `ON_LEAVE`
+- leave request creation and approval flows
+- role-aware decisions between managers and taskers
+
+### 5) Team analytics and visibility
+- completion rate, quality score, and output summaries
+- role-based dashboard data for project leads and reviewers
+- polling-based refresh behavior for live updates
+
+### 6) Notifications and activity feed
+- activity event tracking for task, review, leave, and project actions
+- read/unread notification structures
+- operational timeline for the current workspace
+
+### 7) Authentication and access control
+- JWT access tokens and refresh-token rotation
+- secure cookie-based refresh flow
+- password hashing with `bcryptjs`
+- protected routes and role-aware access handling
+
+> Note: the AI insight flow in this repo is implemented as a data-driven heuristic layer that aggregates project metrics and creates insight records. It is not currently a production LLM integration in the code.
 
 ---
 
-# 📊 AI Productivity Analytics
+## Architecture
 
-Track team performance using intelligent scoring systems.
-
-### Weekly Reports
-- Tasks completed
-- Active work hours
-- Attendance percentage
-- AI usage analytics
-- Productivity ranking
-
----
-
-### Monthly Reports
-- Attendance analysis
-- Work quality scoring
-- Time spent on platform
-- Team contribution analysis
-- Performance consistency
-
----
-
-# 🏆 AI Performance Scoring Engine
-
-AstralHQ calculates intelligent productivity scores using:
-- Attendance
-- Work consistency
-- Task completion
-- Active hours
-- Team engagement
-
-### Example Logic
-
-```js
-score =
-(attendance * 0.3) +
-(taskCompletion * 0.4) +
-(activeHours * 0.2) +
-(teamInteraction * 0.1)
+```mermaid
+flowchart LR
+    U[User] --> C[React + Vite Client]
+    C -->|REST + Cookies + Socket.IO| A[Express API]
+    A -->|Prisma ORM| P[(PostgreSQL or SQLite)]
+    A -->|JWT + Refresh Tokens| AUTH[Auth Layer]
+    A -->|Realtime events| S[Socket.IO]
+    C -->|Protected routes| R[Role-based access]
 ```
 
+### Backend structure
+The backend is organized around feature modules and a versioned API:
+
+- `/api/health`
+- `/api/auth`
+- `/api/dashboard`
+- `/api/projects`
+- `/api/leave`
+- `/api/attendance`
+- `/api/taskers`
+- `/api/analytics`
+- `/api/notifications`
+- `/api/work-items`
+- `/api/inbox`
+- `/api/activity`
+- `/api/ai`
+
+### Frontend structure
+The client uses route-based navigation and a protected app layout with pages for:
+
+- auth/login flow
+- dashboard
+- taskers
+- task review
+- attendance
+- leave
+- projects
+- analytics
+- project detail views
+
 ---
 
-# ⚡ REAL-TIME COLLABORATION
+## Technology stack
 
-Powered by WebSockets for instant synchronization.
+### Frontend
+- React 19
+- Vite
+- Tailwind CSS v4
+- React Router
+- Axios
+- Framer Motion
+- Recharts
+- `@dnd-kit` for drag-and-drop behaviors
+- `cmdk` for command palette patterns
+- `lucide-react` icons
 
-### Real-Time Features
-- Live team updates
-- Instant messaging
-- Typing indicators
-- Workspace synchronization
-- Live status monitoring
+### Backend
+- Node.js 20+
+- Express 5
+- Prisma 6
+- PostgreSQL
+- SQLite support for local development
+- Socket.IO
+- Helmet
+- `express-rate-limit`
+- `express-validator`
+- `jsonwebtoken`
+- `bcryptjs`
+
+### Data model
+The Prisma schema includes operational domain entities such as:
+
+- `User`
+- `Project`
+- `ProjectAllocation`
+- `WorkItem`
+- `LeaveRequest`
+- `Attendance`
+- `Notification`
+- `Activity`
+- `AiInsight`
+- `Analytics`
+
+This shows a real business-domain data model rather than a toy app schema.
 
 ---
 
-# 🏗️ SYSTEM ARCHITECTURE
+## Repository structure
 
 ```text
-                     ┌────────────────────────┐
-                     │   AstralHQ React UI    │
-                     │  (Vite + Tailwind v4)  │
-                     └───────────┬────────────┘
-                                 │
-                                 ▼
-                     ┌────────────────────────┐
-                     │   Express API Server   │
-                     │    (Node.js Core)      │
-                     └───────────┬────────────┘
-                                 │
-         ┌───────────────────────┼───────────────────────┐
-         ▼                       ▼                       ▼
- ┌───────────────┐       ┌───────────────┐       ┌───────────────┐
- │ JWT Auth &    │       │ Attendance    │       │ Real-Time     │
- │ RBAC Guard    │       │ Audit Engine  │       │ Websockets    │
- └───────────────┘       └───────────────┘       └───────────────┘
-         │                       │                       │
-         └───────────────────────┼───────────────────────┘
-                                 ▼
-                     ┌────────────────────────┐
-                     │   Prisma ORM Client    │
-                     └───────────┬────────────┘
-                                 │
-                                 ▼
-                     ┌────────────────────────┐
-                     │ PostgreSQL / SQLite DB │
-                     └────────────────────────┘
-```
-
----
-
-# 🎨 UI/UX SYSTEM
-
-AstralHQ follows a:
-- Dark luxury UI
-- Glassmorphism aesthetics
-- Enterprise SaaS architecture
-- High-density operational dashboards
-
----
-
-# 🎯 UI/UX IMPROVEMENTS PLANNED
-
-## Modern SaaS Features
-✅ Glassmorphism  
-✅ Animated Charts  
-✅ AI Dashboards  
-✅ Gradient Themes  
-✅ Dark Mode  
-✅ Real-Time Analytics  
-✅ Smart Widgets  
-
----
-
-# 🛠️ TECH STACK
-
-# 🎨 Frontend
-- React.js
-- Vite
-- TypeScript
-- Tailwind CSS v4
-- Axios
-- Zustand
-- Lucide Icons
-- React Router
-
----
-
-# ⚙️ Backend
-- Node.js
-- Express.js
-- Socket.IO
-- JWT Authentication
-- REST APIs
-
----
-
-# 🗄️ Database
-- PostgreSQL
-- SQLite
-- Prisma ORM
-
----
-
-# 📊 Analytics & Charts
-- Recharts
-- Chart.js
-- Tremor UI
-
----
-
-# ☁️ Deployment
-- Vercel
-- Railway
-- Render
-- Docker
-
----
-
-# 📂 PROJECT STRUCTURE
-
-```bash
-astralhq/
-│
-├── apps/
-│   │
-│   ├── client/                 # Frontend Application
-│   │   ├── src/
-│   │   │   ├── components/
-│   │   │   ├── pages/
-│   │   │   ├── hooks/
-│   │   │   ├── services/
-│   │   │   ├── store/
-│   │   │   └── utils/
-│   │
-│   ├── server/                 # Backend Application
-│       ├── routes/
-│       ├── controllers/
-│       ├── middleware/
-│       ├── prisma/
-│       ├── sockets/
-│       └── services/
-│
-├── shared/
-├── docs/
+Ethara-AI-/
+├── .gitignore
+├── DEPLOYMENT.md
+├── README.md
 ├── package.json
-└── README.md
+├── package-lock.json
+├── vercel.json
+├── apps/
+│   ├── client/
+│   │   ├── .env.example
+│   │   ├── package.json
+│   │   ├── public/
+│   │   ├── railway.toml
+│   │   ├── src/
+│   │   │   ├── assets/
+│   │   │   ├── components/
+│   │   │   ├── config/
+│   │   │   ├── contexts/
+│   │   │   ├── hooks/
+│   │   │   ├── lib/
+│   │   │   ├── pages/
+│   │   │   ├── App.jsx
+│   │   │   ├── main.jsx
+│   │   │   ├── index.css
+│   │   │   └── ...
+│   │   └── vite.config.js
+│   └── server/
+│       ├── .env.example
+│       ├── .env.sqlite
+│       ├── Dockerfile
+│       ├── package.json
+│       ├── prisma/
+│       │   ├── schema.prisma
+│       │   ├── schema.sqlite.prisma
+│       │   ├── migrations/
+│       │   └── seed.js
+│       ├── railway.toml
+│       ├── scripts/
+│       └── src/
+│           ├── config/
+│           ├── core/
+│           ├── middleware/
+│           ├── modules/
+│           ├── routes/
+│           ├── app.js
+│           └── index.js
+└── ...
 ```
 
 ---
 
-# ⚡ QUICK START
+## Quick start
 
-# 📦 Clone Repository
+### Prerequisites
+- Node.js 20+
+- npm
+- Docker (recommended for local PostgreSQL)
+- Optional: Vercel or Railway account for deployment
 
-```bash
-git clone https://github.com/your-username/astralhq.git
-cd astralhq
-```
-
----
-
-# 📥 Install Dependencies
+### 1) Install dependencies
 
 ```bash
+git clone https://github.com/Abhishek2114/Ethara-AI-.git
+cd Ethara-AI-
 npm install
 ```
 
----
-
-# 🔑 ENVIRONMENT VARIABLES
-
-Create `.env` inside `apps/server/`
-
-```env
-PORT=3000
-NODE_ENV=development
-
-DATABASE_URL="file:../data/dev.db"
-
-JWT_ACCESS_SECRET="your-high-security-jwt-secret-key"
-JWT_REFRESH_SECRET="your-high-security-refresh-secret-key"
-
-OPENAI_API_KEY=your_openai_key
-CLAUDE_API_KEY=your_claude_key
-GEMINI_API_KEY=your_gemini_key
-```
-
----
-
-# 🚀 DATABASE SETUP
-
-# Prisma Migration
+### 2) Configure environment files
 
 ```bash
-npm run db:deploy --workspace=apps/server
+cp apps/server/.env.example apps/server/.env
+cp apps/client/.env.example apps/client/.env
 ```
 
----
+For local development, the server includes a SQLite flow that is set up through the app scripts.
 
-# Seed Database
+### 3) Start PostgreSQL locally (optional)
 
 ```bash
-npm run db:seed --workspace=apps/server
+npm run docker:up
 ```
 
----
-
-# 🚀 RUN DEVELOPMENT SERVERS
-
-# Backend
+### 4) Run database migration and seed
 
 ```bash
+npm run db:deploy
+npm run db:seed
+```
+
+### 5) Start the application
+
+#### Run both apps together
+```bash
+npm run dev
+```
+
+#### Run each app separately
+```bash
+npm run dev:client
 npm run dev:server
 ```
 
----
+Local URLs:
+- Frontend: `http://localhost:5173`
+- API: `http://localhost:3000/api`
 
-# Frontend
+### SQLite local setup
+The server package includes a local SQLite workflow:
 
 ```bash
-npm run dev:client
+npm run setup:local
+```
+
+This creates the local SQLite database and generates Prisma artifacts for local development.
+
+---
+
+## Environment variables
+
+### Root environment
+The repository includes a root `.env.example` style setup for local Postgres configuration:
+
+```env
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=astralhq
+POSTGRES_PORT=5432
+
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/astralhq?schema=public
+```
+
+### Server environment (`apps/server/.env`)
+
+```env
+NODE_ENV=development
+PORT=3000
+APP_NAME=Ethara AI API
+
+DATABASE_URL="file:../data/dev.db"
+# or:
+# DATABASE_URL=postgresql://postgres:postgres@localhost:5432/astralhq?schema=public
+
+JWT_ACCESS_SECRET=change-me-access-secret-min-32-chars-long
+JWT_REFRESH_SECRET=change-me-refresh-secret-min-32-chars-long
+JWT_ACCESS_EXPIRES_IN=15m
+JWT_REFRESH_EXPIRES_IN=7d
+
+BCRYPT_ROUNDS=12
+CORS_ORIGIN=http://localhost:5173
+COOKIE_SECURE=false
+
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX=200
+AUTH_RATE_LIMIT_MAX=20
+TOKEN_CLEANUP_INTERVAL_MS=3600000
+```
+
+### Client environment (`apps/client/.env`)
+
+```env
+VITE_API_URL=http://localhost:3000
 ```
 
 ---
 
-# 🌐 OPEN APPLICATION
+## API surface
 
-## Local Development
-```text
-http://localhost:5173/
-```
+The app exposes a versioned API via `/api` and organizes routes by feature area.
 
-## Production Deployment
-👉 https://astralhq.vercel.app/
-
----
-
-# 🔒 DEFAULT DEMO CREDENTIALS
-
-| Role | Username | Password |
-|---|---|---|
-| Quality Reviewer | abhishek.singh23@ethara.ai | Admin123! |
-| Project Lead | piyush.tomar@ethara.ai | Admin123! |
-| Tasker / Engineer | tasker1@ethara.ai | Member123! |
-
----
-
-# 📡 API MODULES
-
-# Authentication APIs
-
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/api/auth/login` | Login |
-| POST | `/api/auth/register` | Register |
-| GET | `/api/auth/me` | Current User |
-
----
-
-# Attendance APIs
-
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | `/api/attendance/checkin` | Check-In |
-| POST | `/api/attendance/checkout` | Check-Out |
-| GET | `/api/attendance/report` | Attendance Report |
-
----
-
-# Productivity APIs
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/api/analytics/weekly` | Weekly Analytics |
-| GET | `/api/analytics/monthly` | Monthly Analytics |
-| GET | `/api/analytics/top-performers` | Team Ranking |
-
----
-
-# 🔥 REAL-TIME SOCKET EVENTS
-
-```text
-connect
-disconnect
-attendance:update
-message:new
-workspace:update
-user:typing
-presence:update
-```
-
----
-
-# 🔐 SECURITY FEATURES
-
-✅ JWT Authentication  
-✅ RBAC Authorization  
-✅ Secure Sessions  
-✅ Password Hashing  
-✅ Rate Limiting  
-✅ API Validation  
-✅ CORS Protection  
-✅ Input Sanitization  
-✅ Environment Isolation  
-
----
-
-# 📊 ADVANCED ANALYTICS SYSTEM
-
-# Weekly Analytics Dashboard
-
-Includes:
-- Attendance graphs
-- Productivity charts
-- Team rankings
-- AI usage metrics
-- Active hours reports
-
----
-
-# Monthly Operational Reports
-
-Tracks:
-- Work quality
-- Attendance consistency
-- Platform usage time
-- Team engagement
-- Operational efficiency
-
----
-
-# 🎨 BEST UI/UX TOOLS FOR DEVELOPMENT
-
-## Recommended Design Stack
-
-| Purpose | Tool |
+| Module | Purpose |
 |---|---|
-| UI/UX Design | Figma |
-| AI UI Generation | v0.dev |
-| Dashboard Inspiration | Mobbin |
-| Full SaaS UI Builder | Lovable.dev |
+| `/auth` | registration, login, refresh, logout, and profile access |
+| `/dashboard` | summary metrics and manager dashboard state |
+| `/projects` | project listing, creation, and project context |
+| `/leave` | leave request lifecycle and status updates |
+| `/attendance` | attendance tracking and check-in workflows |
+| `/taskers` | team staffing and tasker performance summary |
+| `/analytics` | team analytics and score trends |
+| `/notifications` | notifications and unread state |
+| `/work-items` | task status and review lifecycle |
+| `/inbox` | inbox operation and action data |
+| `/activity` | operational activity log |
+| `/ai` | insight generation endpoints |
 
----
+### Representative endpoints
 
-# 🧪 TESTING
+```http
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/refresh
+POST /api/auth/logout
+GET  /api/auth/me
 
-# Run Tests
-
-```bash
-npm run test
+GET  /api/dashboard/stats
+GET  /api/projects
+POST /api/projects
+GET  /api/projects/:id
+PATCH /api/leave/:id/status
+POST /api/attendance/check-in
+GET  /api/analytics/team
+GET  /api/work-items
+PATCH /api/work-items/:id/review
+GET  /api/health
+GET  /api/ai/insights
+POST /api/ai/insights/generate
 ```
 
+The client uses Axios with automatic refresh-token retry logic and sends the access token via the Authorization header when available.
+
 ---
 
-# Run Linting
+## Demo credentials
+
+The seeded demo users are intentionally included in the seed script and are safe to use in local development.
+
+| Role | Email | Password |
+|---|---|---|
+| Quality Reviewer | `abhishek.singh23@ethara.ai` | `Admin123!` |
+| Project Lead | `piyush.tomar@ethara.ai` | `Admin123!` |
+| Tasker | `tasker1@ethara.ai` | `Member123!` |
+
+---
+
+## Deployment
+
+This project is configured for a modern monorepo deployment model and includes Vercel and Railway guidance.
+
+### Local Docker deployment
+The root `docker-compose.yml` is used for PostgreSQL setup:
 
 ```bash
-npm run lint
+npm run docker:up
 ```
 
----
+### Vercel + Railway deployment
+The repository includes:
 
-# 🐳 DOCKER SUPPORT
+- `vercel.json`
+- `DEPLOYMENT.md`
+- `apps/server/railway.toml`
+- `apps/client/railway.toml`
 
-# Build Docker Image
+The repo’s deployment guide outlines the pattern:
 
-```bash
-docker build -t astralhq .
-```
+1. Create a Railway PostgreSQL service.
+2. Copy the `DATABASE_URL` and set it in the app environment.
+3. Import the repository into Vercel as a single deployment.
+4. Set `JWT_ACCESS_SECRET`, `JWT_REFRESH_SECRET`, `CORS_ORIGIN`, and `COOKIE_SECURE` in production.
+5. Run Prisma migrations against the production database.
+6. Deploy the app and use the app URL as the frontend origin.
 
----
-
-# Run Container
-
-```bash
-docker run -p 3000:3000 astralhq
-```
-
----
-
-# 🐛 TROUBLESHOOTING
-
-# Environment Variables Not Working
-
-### Fix
-- Restart server
-- Verify `.env`
-- Reload environment variables
+The project is designed to support both local development and hosted deployment, though some realtime/socket behavior depends on the hosting environment.
 
 ---
 
-# Database Connection Failed
+## Security and implementation notes
 
-### Fix
-- Check Prisma schema
-- Verify database path
-- Re-run migrations
+The current codebase includes several real engineering safeguards:
 
----
+- JWT access + refresh token flow
+- refresh token hashing and rotation
+- secure cookie handling for authentication
+- password hashing with `bcryptjs`
+- request validation via `express-validator`
+- rate limiting for auth endpoints and general requests
+- Helmet middleware for HTTP hardening
+- CORS configuration for controlled origins
+- Prisma-based database access with model constraints
+- protected client routes and role-aware server logic
 
-# Socket Connection Issues
-
-### Fix
-- Verify backend URL
-- Enable CORS
-- Restart websocket server
-
----
-
-# 📈 FUTURE ROADMAP
-
-## 🚀 Upcoming Features
-
-- AI Agents
-- AI Attendance Predictions
-- Smart Productivity Insights
-- Voice AI Assistant
-- AI Task Recommendations
-- Mobile Application
-- AI File Analysis
-- Team Heatmaps
-- Enterprise SSO
-- Slack Integration
+This should be evaluated as a development-grade internal operations platform, not a fully hardened production system without further review and deployment hardening.
 
 ---
 
-# 🤝 CONTRIBUTING
+## Future improvements
 
-We welcome contributors worldwide.
+The following are realistic roadmap items aligned with the current architecture:
 
-## Contribution Flow
-
-1. Fork Repository
-2. Create Feature Branch
-3. Commit Changes
-4. Push Code
-5. Open Pull Request
-
----
-
-# 🌍 OPEN SOURCE VISION
-
-AstralHQ is designed to become:
-- an AI-powered workforce operating system,
-- productivity intelligence platform,
-- enterprise collaboration ecosystem,
-- and operational command center.
+- add more granular project comments and approvals
+- improve task assignment and workload balancing
+- expand historical analytics and date-range reporting
+- add richer real-time collaboration and notifications
+- strengthen AI insight generation with external model integrations
+- add test coverage for API and frontend flows
+- improve audit logs, soft deletes, and permission review controls
 
 ---
 
-# 👨‍💻 BUILT FOR BUILDERS
+## License
 
-Perfect for:
-- Developers
-- AI Engineers
-- Startups
-- Operations Teams
-- Productivity Analysts
-- Enterprise Organizations
+This project is licensed under the ISC license.
 
 ---
 
-# ⭐ SUPPORT THE PROJECT
+<p align="center">
+  <strong>Built for operational clarity.</strong>
+</p>
 
-If you liked AstralHQ:
-
-⭐ Star the Repository  
-🍴 Fork the Project  
-🚀 Share with Developers  
-🧠 Contribute Features  
-
----
-
-# 📜 LICENSE
-
-MIT License © 2026 Ethara AI
-
----
-
-# 🚀 FINAL MESSAGE
-
-> AstralHQ is not just another dashboard.
->
-> It’s a next-generation AI workforce intelligence platform built for the future of operations, productivity, and intelligent collaboration.
->
-> Build faster. Track smarter. Scale infinitely. 💥
-
----
-
-### Source Reference
-Combined and enhanced from uploaded README content.  [oai_citation:0‡README-3.md](sediment://file_00000000a768720b8e92fe79b84fd19c)
+<p align="center">
+  Explore the project, run it locally, and review the workflow behind the dashboard.
+</p>
